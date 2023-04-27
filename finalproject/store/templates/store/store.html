@@ -1,0 +1,20 @@
+{% extends 'store/layout.html' %}
+{% load static %}
+{% block extrascripts %}<script type="text/JavaScript" src="{%  static 'js/cart.js' %}"></script>{% endblock %}
+{% block body%}
+<div class="row" style="margin-top: 50px;">
+    {% for product in products %}
+      <div class="card" style="width: 18rem;">
+        <div style="height: 350px;">
+          <img src="{{ product.imageURL }}" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.product_name }}</h5>
+          <p class="card-text">{{ product.price }}$</p>
+          <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-dark update-cart" type="submit">Add to cart</button> 
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'store/layout.html' %}
+
+{% block body %}
+<div class="col-lg-6" style="margin-left:300px">
+    <div class="box-element" id="form-wrapper">
+        <h5>Thank you for your order!</h5>
+    </div>
+</div>       
+<div class="col-lg-6" style="margin-left:300px" >
+    <div class="box-element" id="form-wrapper">
+        <h3>Order Summary</h3>
+        <hr>
+        {% for item in items %}
+        <div class="cart-row">
+            <div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
+            <div style="flex:2"><p>{{ item.product }}</p></div>
+            <div style="flex:1"><p>{{ item.product.price }}$</p></div>
+            <div style="flex:1"><p>{{ item.quantity }}</p></div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}
